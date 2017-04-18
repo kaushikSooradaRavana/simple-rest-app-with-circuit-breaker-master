@@ -1,0 +1,16 @@
+---
+applications:
+  - name: simple-rest-app-with-circuit-breaker-v1
+    host: simple-rest-app-with-circuit-breaker-v1
+    buildpack: java_buildpack
+    path: target/simple-rest-app-with-circuit-breaker.jar
+    instances: 1
+    memory: 1024M
+env:
+  APP_VERSION: 1
+  JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
+  CONFIG_SERVER_LABEL: master
+  SPRING_PROFILES_ACTIVE: dev
+services:
+  - ow-circuit-breaker
+  - ow-service-registry

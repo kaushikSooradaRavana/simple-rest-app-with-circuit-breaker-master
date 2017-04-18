@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: simple-rest-app-with-circuit-breaker
+    description: A simple REST service application with circuit breaker
+    version: "@project.version@"
+    majorVersion: ${APP_VERSION:1}
+eureka:
+  instance:
+    appname: ${spring.application.name}-v${spring.application.majorVersion}
+    virtualHostName: ${spring.application.name}-v${spring.application.majorVersion}
+    securePortEnabled: false
